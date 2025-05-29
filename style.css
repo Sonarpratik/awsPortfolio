@@ -7,6 +7,9 @@
   --section-bg: #f3f4f6;
   --border-color: #e5e7eb;
   --transition: all 0.3s ease;
+  --linkedIn:#0A66C2;
+  --gitHub:#181717;
+  --twitter:#1DA1F2;
 }
 
 [data-theme="dark"] {
@@ -17,6 +20,9 @@
   --background: #111827;
   --section-bg: #1f2937;
   --border-color: #374151;
+  --linkedIn:#70B5F9;
+  --gitHub:#C9D1D9;
+  --twitter:#7AC4F8;
 }
 
 /* Base Styles */
@@ -512,3 +518,115 @@ footer {
     font-size: 1.25rem;
   }
 }
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  text-decoration: none;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E;
+  transform: scale(1.1);
+}
+
+.whatsapp-float i {
+  /* margin-top: 5px; */
+}
+
+/* Style for contact section */
+.contact-content {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.social-links {
+  flex: 1;
+  min-width: 300px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.form-group textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px; /* Adjust spacing between links */
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #333;
+  /* background-color: #fff; */
+  position: relative; /* Needed for the underline effect */
+  padding-bottom: 2px; /* Space for underline */
+}
+
+.social-link:hover {
+  color: #333; /* Keep original color on hover or change as needed */
+}
+
+/* Underline effect on hover */
+.social-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor; /* Uses the text color */
+  transition: width 0.3s ease;
+}
+
+.social-link:hover::after {
+  width: 100%;
+}
+
+/* Platform-specific colors */
+.social-link:nth-child(1) { color: var(--linkedIn); } /* LinkedIn blue */
+.social-link:nth-child(2) { color: var(--gitHub); } /* GitHub black */
+.social-link:nth-child(3) { color: var(--twitter); } /* Twitter blue */
