@@ -96,6 +96,7 @@ h3 {
 .nav-links {
   display: flex;
   list-style: none;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -109,13 +110,15 @@ h3 {
 .nav-links a:hover {
   color: var(--primary-color);
 }
-
+.highlight{
+  color: teal!important;
+}
 .theme-toggle {
   background: none;
   border: none;
   color: var(--text-color);
   cursor: pointer;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   font-size: 1.25rem;
   transition: var(--transition);
 }

@@ -77,15 +77,33 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
-// Typewriter effect for hero section
-const text = document.querySelector('.typewriter');
-const originalText = text.innerHTML;
-text.innerHTML = '';
+// Typewriter effect for hero section that preserves HTML tags
+const textElement = document.querySelector('.typewriter');
+const originalHTML = textElement.innerHTML;
+textElement.innerHTML = '';
 
 let i = 0;
+let tagBuffer = '';
+let isTag = false;
+
 function typeWriter() {
-    if (i < originalText.length) {
-        text.innerHTML += originalText.charAt(i);
+    if (i < originalHTML.length) {
+        const char = originalHTML.charAt(i);
+        
+        if (char === '<') {
+            isTag = true;
+            tagBuffer += char;
+        } else if (char === '>' && isTag) {
+            tagBuffer += char;
+            textElement.innerHTML += tagBuffer;
+            tagBuffer = '';
+            isTag = false;
+        } else if (isTag) {
+            tagBuffer += char;
+        } else {
+            textElement.innerHTML += char;
+        }
+        
         i++;
         setTimeout(typeWriter, 50);
     }
@@ -93,3 +111,5 @@ function typeWriter() {
 
 // Start typewriter effect when page loads
 window.addEventListener('load', typeWriter);
+
+// Start typewriter effect when page loads
